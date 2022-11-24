@@ -23,11 +23,19 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: ListView.builder(
-          itemCount: games.length,
-          itemBuilder: (context, index) {
-            return CellCart(games[index]);
-          }),
+      body: Column(
+        children: [
+          const Align(
+              alignment: Alignment.centerRight, child: Text("Total:500TND")),
+          Expanded(
+            child: ListView.builder(
+                itemCount: games.length,
+                itemBuilder: (context, index) {
+                  return CellCart(games[index]);
+                }),
+          )
+        ],
+      ),
     );
   }
 }
